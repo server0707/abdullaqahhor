@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdulla Qahhor - Buyuk O'zbek Yozuvchisi</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-background"></div>
+        <div class="header-content">
+            <div class="header-text">
+                <h1 class="header-title">Abdulla Qahhor</h1>
+                <p class="header-subtitle">Buyuk O'zbek yozuvchisi</p>
+            </div>
+            <div class="header-image">
+                <img src="images/photo_1_2026-03-27_19-48-18.jpg" alt="Abdulla Qahhor" class="header-img">
+            </div>
+        </div>
+    </header>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#biografiya" class="nav-link">Biografiya</a></li>
+                <li class="nav-item"><a href="#asarlari" class="nav-link">Asarlari</a></li>
+                <li class="nav-item"><a href="#iqtiboslar" class="nav-link">Iqtiboslar</a></li>
+                <li class="nav-item"><a href="#galereya" class="nav-link">Foto Galereya</a></li>
+                <li class="nav-item"><a href="#manbalar" class="nav-link">Manbalar</a></li>
+                <li class="nav-item"><a href="#aloqa" class="nav-link">Aloqa</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+        <!-- WELCOME SECTION -->
+        <section class="welcome-section">
+            <div class="container">
+                <div class="welcome-carousel">
+                    <button class="carousel-nav carousel-prev" onclick="prevSlide()">❮</button>
+                    <div class="carousel-item active">
+                        <div class="welcome-box">
+                            <h2>Xush Kelibsiz!</h2>
+                            <p>Abdulla Qahhor hayoti, ijodi va hikoyalari haqida ko'proq ma'lumot olish uchun ushbu veb-saytdan foydalanishingiz mumkin.</p>
+                            <a href="#asarlari" class="btn-primary">Asarlari Ko'rish</a>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="welcome-box">
+                            <h2>Ijodiy Meros</h2>
+                            <p>Abdulla Qahhor o'zbek adabiyotida yangi uslub va g'oyalari olib keldi, inson ruhining chuqur tomonlarini tasvir etdi.</p>
+                            <a href="#biografiya" class="btn-primary">Biografiya</a>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="welcome-box">
+                            <h2>Mashhur Asarlar</h2>
+                            <p>"O'g'rim", "Sinchalak", "Bemor" va boshqa klassik asarlarni o'qing va ularning go'zalligi bilan shunollaning.</p>
+                            <a href="#asarlari" class="btn-primary">Asarlarni Ko'rish</a>
+                        </div>
+                    </div>
+                    <button class="carousel-nav carousel-next" onclick="nextSlide()">❯</button>
+                </div>
+                <div class="carousel-dots">
+                    <span class="dot" onclick="currentSlide(1)" style="background-color: #8B7355;"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAMOUS WORKS SECTION -->
+        <section id="asarlari" class="works-section">
+            <div class="container">
+                <h2 class="section-title">Mashhur Asarlar</h2>
+                <p class="section-subtitle">Abdulla Qahhor eng zo'r asarlarini o'qing</p>
+                <div class="works-grid">
+                    <div class="work-item" onclick="openWorkModal('ogri')">
+                        <div class="work-image">
+                            <img src="images/photo_2_2026-03-27_19-48-18.jpg" alt="O'g'ri" class="work-img">
+                        </div>
+                        <h3>O'g'ri</h3>
+                        <p class="work-year">Hikoya</p>
+                        <p class="work-desc">Poraxo'rlik va adolatsizlik haqida</p>
+                        <button class="btn-read">O'qish</button>
+                    </div>
+
+                    <div class="work-item" onclick="openWorkModal('bemor')">
+                        <div class="work-image">
+                            <img src="images/photo_3_2026-03-27_19-48-18.jpg" alt="Bemor" class="work-img">
+                        </div>
+                        <h3>Bemor</h3>
+                        <p class="work-year">Hikoya</p>
+                        <p class="work-desc">Kambag'allik va savodsizlik fojеasi</p>
+                        <button class="btn-read">O'qish</button>
+                    </div>
+
+                    <div class="work-item" onclick="openWorkModal('dahshat')">
+                        <div class="work-image">
+                            <img src="images/photo_4_2026-03-27_19-48-18.jpg" alt="Dahshat" class="work-img">
+                        </div>
+                        <h3>Dahshat</h3>
+                        <p class="work-year">Hikoya</p>
+                        <p class="work-desc">Ayolning ruhiy iztiroblari</p>
+                        <button class="btn-read">O'qish</button>
+                    </div>
+
+                    <div class="work-item" onclick="openWorkModal('sinchalak')">
+                        <div class="work-image">
+                            <img src="images/photo_5_2026-03-27_19-48-18.jpg" alt="Sinchalak" class="work-img">
+                        </div>
+                        <h3>Sinchalak</h3>
+                        <p class="work-year">Qissa</p>
+                        <p class="work-desc">Haqiqat uchun kurashuvchi qiz</p>
+                        <button class="btn-read">O'qish</button>
+                    </div>
+
+                    <div class="work-item" onclick="openWorkModal('otmishdan')">
+                        <div class="work-image">
+                            <img src="images/photo_6_2026-03-27_19-48-18.jpg" alt="O'tmishdan ertaklar" class="work-img">
+                        </div>
+                        <h3>O'tmishdan ertaklar</h3>
+                        <p class="work-year">1965 — Avtobiografik asar</p>
+                        <p class="work-desc">Bolalik xotiralari va qashshoqlik</p>
+                        <button class="btn-read">O'qish</button>
+                    </div>
+
+                    <div class="work-item" onclick="openWorkModal('sarob')">
+                        <div class="work-image">
+                            <img src="images/photo_7_2026-03-27_19-48-18.jpg" alt="Sarob" class="work-img">
+                        </div>
+                        <h3>Sarob</h3>
+                        <p class="work-year">1934 — Roman</p>
+                        <p class="work-desc">Ziyolining ruhiy tushkunligi</p>
+                        <button class="btn-read">O'qish</button>
+                    </div>
+
+                    <div class="work-item" onclick="openWorkModal('anor')">
+                        <div class="work-image">
+                            <img src="images/photo_8_2026-03-27_19-48-18.jpg" alt="Anor" class="work-img">
+                        </div>
+                        <h3>Anor</h3>
+                        <p class="work-year">Hikoya</p>
+                        <p class="work-desc">Qashshoqlik va insoniy munosabatlar</p>
+                        <button class="btn-read">O'qish</button>
+                    </div>
+
+                    <div class="work-item" onclick="openWorkModal('asrbobo')">
+                        <div class="work-image">
+                            <img src="images/photo_9_2026-03-27_19-48-18.jpg" alt="Asror bobo" class="work-img">
+                        </div>
+                        <h3>Asror bobo</h3>
+                        <p class="work-year">Hikoya</p>
+                        <p class="work-desc">Mehnat va hayotga muhabbat</p>
+                        <button class="btn-read">O'qish</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BIOGRAPHY SECTION -->
+        <section id="biografiya" class="biography-section">
+            <div class="container">
+                <div class="bio-content">
+                    <div class="bio-left">
+                        <h2>Tarjimai Hol</h2>
+                        <p><strong>Abdulla Qahhor</strong> (1907–1968) — o'zbek milliy nasrining zabardast vakili, yozuvchi, dramaturg va publitsist. U o'zbek adabiyotida hikoya janrining tengsiz ustasi bo'lib, "o'zbek Chexovi" deb ham ataladi.</p>
+                        <p>Qahhor 1907-yilning 17-sentabrida Qo'qon shahridan uncha uzoq bo'lmagan Asht qishlog'ida tug'ilgan. 1925-yilda Toshkentga kelib, "Qizil O'zbekiston" gazetasida adabiy xodim bo'lib ishlagan. U o'zbek xalqining o'tmishi va bugungi hayotini asarlarida chuqur aks ettirgan. Uning romanlari, qissalari va hikoyalari o'zbek adabiyoti tarixida muhim o'rin tutadi.</p>
+                        <p>Qahhor o'z asarlarida o'zbek xalqining turmush tarzi, o'tmishi va orzu-armonlarini o'ziga xos tarzda tasvirlagan. U o'zbek realizm adabiyotining yirik namoyandasi bo'lib, xalqning qorong'u kunlarida vujud topgan ruhiy kuchlarni va g'alaba umidini chuqur ifodalagan.</p>
+                        <p>Uning "O'g'ri", "Sinchalak", "Bemor", "Sarob" kabi asarlari o'zbek klassik adabiyotining durdonalari sifatida e'tirof etilgan va o'quv muassasalarida o'qitiladi.</p>
+                        <p>"Adabiyot atomdan kuchli, lekin uning kuchini o'tin yorishga sarf qilish kerak emas," — degan Qahhor o'z ijodida xalq hayotini haqiqiy va haqqoniy tasvirlashni asosiy maqsad qilgan.</p>
+                        <a href="#manbalar" class="btn-secondary">Batafsil O'qish</a>
+                    </div>
+                    <div class="bio-right">
+                        <div class="timeline-brief">
+                            <h3>Muhim Voqealar</h3>
+                            <ul class="timeline-list">
+                                <li><strong>1907</strong> - Asht qishlog'ida (Qo'qon yaqinida) tug'ilgan</li>
+                                <li><strong>1925</strong> - Toshkentga kelib, "Qizil O'zbekiston" gazetasida ishlay boshladi</li>
+                                <li><strong>1932</strong> - "Qishloq hukm ostida" qissasi chop etilgan</li>
+                                <li><strong>1934</strong> - "Sarob" romani nashr etilgan</li>
+                                <li><strong>1951</strong> - "Qo'shchinor chiroqlari" romani nashr etilgan</li>
+                                <li><strong>1958</strong> - "Sinchalak" qissasi nashr etilgan</li>
+                                <li><strong>1968</strong> - Moskvada vafot etdi</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- QUOTES SECTION -->
+        <section id="iqtiboslar" class="quotes-section">
+            <div class="container">
+                <h2 class="section-title">Mashhur Iqtiboslar</h2>
+                <div class="quotes-carousel">
+                    <div class="quote-item">
+                        <p class="quote-text">"Adabiyot atomdan kuchli, lekin uning kuchini o'tin yorishga sarf qilish kerak emas."</p>
+                        <span class="quote-author">— Abdulla Qahhor</span>
+                    </div>
+                    <div class="quote-item">
+                        <p class="quote-text">"Yaxshi tarbiya ko'rgan odamning xislatlaridan biri shuki, bunday odam o'z faoliyatida boshqalardan bir qadam oldinga o'tsa, darrov orqaga qaraydi, sheriklariga yordam qo'lini uzatadi, safini kengaytirib, yangi g'alabani ko'zlaydi."</p>
+                        <span class="quote-author">— Abdulla Qahhor</span>
+                    </div>
+                    <div class="quote-item">
+                        <p class="quote-text">"Oilaviy baxtda hikmat ko'p. Baxtiyar oila eng birinchi va eng kuchli tarbiya o'chog'i, demak, yoshlarimizning tole'i, ertangi saodatli kishilar jamiyatimizning poydevoridir."</p>
+                        <span class="quote-author">— Abdulla Qahhor</span>
+                    </div>
+                    <div class="quote-item">
+                        <p class="quote-text">"Dunyodagi har bir katta-kichik kasbning fazilatlarini aytib o'tish uchungina ham bittadan roman yaratsa bo'ladi."</p>
+                        <span class="quote-author">— Abdulla Qahhor</span>
+                    </div>
+                    <div class="quote-item">
+                        <p class="quote-text">"Adabiy asar yozish uchun, hech shubhasiz, talant kerak. Lekin yozilgan narsani o'chirish, kitobxonga zarur gaplarning o'zini qoldirish uchun talantning o'zigina kifoya qilmaydi, insof ham kerak."</p>
+                        <span class="quote-author">— Abdulla Qahhor</span>
+                    </div>
+                    <div class="quote-item">
+                        <p class="quote-text">"Yurtni obod qilaman degan kishi o'zi obod bo'ladi."</p>
+                        <span class="quote-author">— Abdulla Qahhor</span>
+                    </div>
+                    <button class="quote-nav quote-prev" onclick="prevQuote()">❮</button>
+                    <button class="quote-nav quote-next" onclick="nextQuote()">❯</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- PHOTO GALLERY SECTION -->
+        <section id="galereya" class="gallery-section">
+            <div class="container">
+                <h2 class="section-title">Foto Galereya</h2>
+                <p class="section-subtitle">Abdulla Qahhor hayotidagi muhim voqealar va yodgorliklari</p>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="images/photo_16_2026-03-27_19-48-18.jpg" alt="Abdulla Qahhor" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <h3>Yozuvchi Portreti</h3>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/photo_17_2026-03-27_19-48-18.jpg" alt="Yozuv jarayoni" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <h3>Ijodiy Jarayoni</h3>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/photo_18_2026-03-27_19-48-18.jpg" alt="Oila rasmi" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <h3>Oila Xotiralari</h3>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/photo_19_2026-03-27_19-48-18.jpg" alt="Kutubxona" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <h3>O'qish Joylarinining Xotiralari</h3>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/photo_20_2026-03-27_19-48-18.jpg" alt="Tashkent" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <h3>Tashkent Shahri</h3>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/photo_21_2026-03-27_19-48-18.jpg" alt="Mumyalar" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <h3>Yodgorliklari</h3>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/photo_22_2026-03-27_19-48-18.jpg" alt="Kitoblar" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <h3>Asarlarining Nashrlari</h3>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/photo_23_2026-03-27_19-48-18.jpg" alt="Teatr" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <h3>Dramatik Asarlari</h3>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/photo_24_2026-03-27_19-48-18.jpg" alt="Xalq sevgi" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <h3>Xalq Sevgisi</h3>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/photo_25_2026-03-27_19-48-18.jpg" alt="Shart" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <h3>Ijodiy Sharti</h3>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/photo_26_2026-03-27_19-48-18.jpg" alt="Tadqiqoti" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <h3>Ilmiy Tadqiqotlar</h3>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/photo_27_2026-03-27_19-48-18.jpg" alt="Mirosi" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <h3>Ijodiy Mirosi</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RESOURCES SECTION -->
+        <section id="manbalar" class="resources-section">
+            <div class="container">
+                <h2 class="section-title">Foydali Manbalar</h2>
+                <div class="resources-grid">
+                    <div class="resource-item">
+                        <i class="fas fa-book"></i>
+                        <h3>Kitoblar va Asarlar</h3>
+                        <p>Qahhorning to'liq asarlari</p>
+                        <ul class="resource-list">
+                            <li><a href="https://uz.wikipedia.org/wiki/Abdulla_Qahhor" target="_blank">Vikipediya - Abdulla Qahhor</a></li>
+                            <li><a href="https://ziyouz.com/uzbek-literature/abdulla-qahhor/" target="_blank">Ziyouz.com - Abdulla Qahhor asarlari</a></li>
+                        </ul>
+                    </div>
+                    <div class="resource-item">
+                        <i class="fas fa-newspaper"></i>
+                        <h3>Maqolalar</h3>
+                        <p>Uning haqida yozilgan tadqiqotlar</p>
+                        <ul class="resource-list">
+                            <li><a href="https://global-science-review.com/ojs/index.php/gsr/article/view/4989" target="_blank">O'razboyeva F.Q. — Abdulla Qahhor asarlarida umumiy iqtisodiy tahlil</a></li>
+                            <li><a href="https://repo.ijiert.org/index.php/ijiert/article/view/3906" target="_blank">Kholmuminova Sh.L. — The Life Way of Abdulla Qahhor</a></li>
+                        </ul>
+                    </div>
+                    <div class="resource-item">
+                        <i class="fas fa-link"></i>
+                        <h3>Havolalar</h3>
+                        <p>Muhim foydali saytlar</p>
+                        <ul class="resource-list">
+                            <li><a href="https://tsue.uz" target="_blank">TSUE - Toshkent Davlat Iqtisodiyot Universiteti</a></li>
+                            <li><a href="https://unilibrary.uz" target="_blank">O'zbekiston Milliy Kutubxonasi</a></li>
+                            <li><a href="https://nrm.uz" target="_blank">National Reference Museum</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER/CONTACT SECTION -->
+    <footer id="aloqa" class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Aloqa</h3>
+                    <p>Biz bilan bog'lanish uchun:</p>
+                    <ul class="contact-list">
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:urazbayevafarangiz@gmail.com">urazbayevafarangiz@gmail.com</a></li>
+                        <li><i class="fas fa-paper-plane"></i> <a href="https://t.me/farangiz1160" target="_blank">@farangiz1160 (Telegram)</a></li>
+                        <li><i class="fas fa-map-marker-alt"></i> To'rtko'l, O'zbekiston</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Sayt Muallifi</h3>
+                    <p><strong>O'razboyeva Farangiz</strong></p>
+                    <p>Tashkent Davlat Iqtisodiyot Universiteti<br>To'rtko'l Fakulteti<br>Talabasi</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Asosiy Menyu</h3>
+                    <ul class="footer-menu">
+                        <li><a href="#"><i class="fas fa-home"></i> Bosh sahifa</a></li>
+                        <li><a href="#biografiya"><i class="fas fa-user"></i> Biografiya</a></li>
+                        <li><a href="#asarlari"><i class="fas fa-book"></i> Asarlari</a></li>
+                        <li><a href="#galereya"><i class="fas fa-image"></i> Galereya</a></li>
+                        <li><a href="#aloqa"><i class="fas fa-envelope"></i> Aloqa</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; Abdulla Qahhor - Resmi Veb-Sayt. Barcha huquqlar himoyalangan.<br>
+                <small>Muallif: O'razboyeva Farangiz | TDIU To'rtko'l Fakulteti | 2026</small></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

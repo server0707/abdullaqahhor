@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -c \":*)",
+      "Bash(pip install:*)",
+      "Bash(grep -rn \"Shodiyane\\\\|shodiyane\\\\|workDetails\\\\|openWorkModal\" 'c:/Users/Abdulla/Nextcloud/Python/Abdulla Qahhor/' --include=*.js --include=*.html --include=*.php)",
+      "WebFetch(domain:global-science-review.com)",
+      "WebSearch"
+    ]
+  }
+}

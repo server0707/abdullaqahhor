@@ -1,0 +1,122 @@
+{
+  "author": {
+    "name": "Abdulla Qahhor",
+    "fullName": "Abdulla Qahhor",
+    "birthYear": 1907,
+    "deathYear": 1978,
+    "birthPlace": "Tashkent",
+    "nationality": "Uzbek",
+    "profession": ["Writer", "Dramatist", "Journalist"],
+    "description": "Abdulla Qahhor (1907-1978) was a prominent Uzbek writer, dramatist, and journalist who played a significant role in Uzbek literature."
+  },
+  "works": [
+    {
+      "title": "O'G'RIM",
+      "year": 1934,
+      "type": "Novel",
+      "description": "One of the most significant works of Abdulla Qahhor, depicting the life and struggles of common people.",
+      "image": "ogrim.jpg"
+    },
+    {
+      "title": "Sinchalak",
+      "year": 1930,
+      "type": "Novella",
+      "description": "A famous novella that tells about the life of a young girl.",
+      "image": "sinchalak.jpg"
+    },
+    {
+      "title": "BEMOR",
+      "year": 1928,
+      "type": "Drama",
+      "description": "A historical drama exploring themes of illness and recovery.",
+      "image": "bemor.jpg"
+    },
+    {
+      "title": "Paxta Dehqonlari",
+      "year": 1935,
+      "type": "Novel",
+      "description": "A novel about cotton farmers and their lives."
+    },
+    {
+      "title": "Shayton Uyi",
+      "year": 1930,
+      "type": "Drama",
+      "description": "A dramatic work exploring moral and societal issues."
+    }
+  ],
+  "quotes": [
+    {
+      "text": "Adabiyot - bu millatning ruhiy durdonasi va qalbi tutni ifodasidir.",
+      "translation": "Literature is the spiritual treasure of a nation and the expression of its heart's desire."
+    },
+    {
+      "text": "To'liq insonlik - bu faqat madaniyat va ilm odam beradi.",
+      "translation": "True humanity is given to a person only by culture and knowledge."
+    },
+    {
+      "text": "Yozmaloq yasashni to'g'ri qiymatlantirishga olib keladi.",
+      "translation": "Writing leads to correct appreciation of life."
+    },
+    {
+      "text": "Bosh asarda inson sifati, uning o'n hayoti va ishlari yuzasida fikr yuritiladi.",
+      "translation": "The main theme of the work is about human nature, his daily life and deeds."
+    }
+  ],
+  "biography": {
+    "earlyLife": "Abdulla Qahhor was born in Tashkent in 1907. He grew up during a time of significant change in Central Asia.",
+    "education": "He received his education during the early Soviet period and was influenced by both traditional Uzbek culture and modern progressive ideas.",
+    "careerStart": "He began his literary career in the late 1920s, initially publishing stories and poetry.",
+    "majorWorks": "Throughout the 1930s and 1940s, he wrote several major works that became classics of Uzbek literature.",
+    "laterLife": "In his later years, he focused on drama and journalism, continuing to contribute to Uzbek culture until his death in 1978.",
+    "legacy": "Abdulla Qahhor is considered one of the most important figures in Uzbek literature, known for his realistic portrayal of ordinary people's lives and his exploration of social themes."
+  },
+  "timeline": [
+    {
+      "year": 1907,
+      "event": "Born in Tashkent"
+    },
+    {
+      "year": 1920,
+      "event": "Began education"
+    },
+    {
+      "year": 1928,
+      "event": "First published works"
+    },
+    {
+      "year": 1930,
+      "event": "Published Sinchalak and Shayton Uyi"
+    },
+    {
+      "year": 1934,
+      "event": "Published O'G'RIM"
+    },
+    {
+      "year": 1950,
+      "event": "Continued literary and dramatic works"
+    },
+    {
+      "year": 1978,
+      "event": "Passed away, leaving a significant legacy"
+    }
+  ],
+  "facts": [
+    "He was one of the founders of modern Uzbek literature",
+    "His works were translated into many languages",
+    "He was also known for his journalism and criticism",
+    "He played an important role in the development of Uzbek drama",
+    "His works often dealt with social issues and ordinary people's lives",
+    "He was respected by both Soviet and post-Soviet literary communities"
+  ],
+  "contact": {
+    "email": "info@abduquahhor.uz",
+    "phone": "+998 71 234-56-78",
+    "address": "Tashkent, Uzbekistan"
+  },
+  "social_media": {
+    "facebook": "https://facebook.com/abduquahhor",
+    "twitter": "https://twitter.com/abduquahhor",
+    "youtube": "https://youtube.com/abduquahhor",
+    "instagram": "https://instagram.com/abduquahhor"
+  }
+}

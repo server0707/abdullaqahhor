@@ -1,0 +1,37 @@
+# Robots.txt for Abdulla Qahhor Official Website
+# Allow search engines to index the site
+
+User-agent: *
+Allow: /
+Allow: /css/
+Allow: /js/
+Allow: /images/
+Disallow: /data/
+Disallow: *.json$
+Disallow: *.md$
+
+# Google
+User-agent: Googlebot
+Allow: /
+
+# Microsoft
+User-agent: Bingbot
+Allow: /
+
+# Yandex
+User-agent: YandexBot
+Allow: /
+
+# OpenAI
+User-agent: GPTBot
+Disallow: /
+
+# Specific paths
+Sitemap: https://www.abduquahhor.uz/sitemap.xml
+
+# Crawl delay (optional)
+Crawl-delay: 1
+Request-rate: 30/60
+
+# Comment: This robots.txt file allows search engines to crawl and index the website
+# for better SEO performance. All main content pages are accessible to bots.
