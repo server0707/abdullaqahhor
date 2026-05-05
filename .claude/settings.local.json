@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(powershell -Command \"Remove-Item 'c:/Users/Abdulla/Nextcloud/Python/Abdulla Qahhor/images/photo_1_2026-04-03_22-06-50.jpg', 'c:/Users/Abdulla/Nextcloud/Python/Abdulla Qahhor/images/photo_2_2026-04-03_22-06-50.jpg', 'c:/Users/Abdulla/Nextcloud/Python/Abdulla Qahhor/images/photo_3_2026-04-03_22-06-50.jpg', 'c:/Users/Abdulla/Nextcloud/Python/Abdulla Qahhor/images/photo_4_2026-04-03_22-06-50.jpg', 'c:/Users/Abdulla/Nextcloud/Python/Abdulla Qahhor/images/photo_5_2026-04-03_22-06-50.jpg', 'c:/Users/Abdulla/Nextcloud/Python/Abdulla Qahhor/images/photo_6_2026-04-03_22-06-50.jpg', 'c:/Users/Abdulla/Nextcloud/Python/Abdulla Qahhor/images/photo_7_2026-04-03_22-06-50.jpg'\")",
+      "Bash(cmd /c del \"c:\\\\Users\\\\Abdulla\\\\Nextcloud\\\\Python\\\\Abdulla Qahhor\\\\images\\\\photo_1_2026-04-03_22-06-50.jpg\")",
+      "Bash(cmd /c del \"c:\\\\Users\\\\Abdulla\\\\Nextcloud\\\\Python\\\\Abdulla Qahhor\\\\images\\\\photo_2_2026-04-03_22-06-50.jpg\")"
+    ]
+  }
+}

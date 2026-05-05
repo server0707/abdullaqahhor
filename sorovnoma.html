@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>So'rovnoma - Abdulla Qahhor</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .survey-section {
+            padding: 60px 0;
+            background: linear-gradient(to bottom, var(--light-color), #FDFAF5);
+        }
+
+        .survey-card {
+            background: white;
+            border: 3px solid var(--secondary-color);
+            border-radius: 10px;
+            padding: 40px;
+            max-width: 700px;
+            margin: 0 auto 50px auto;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .survey-question {
+            font-size: 1.4em;
+            color: var(--dark-color);
+            font-style: italic;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: var(--light-color);
+            border-left: 5px solid var(--secondary-color);
+            border-radius: 5px;
+            line-height: 1.5;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: var(--primary-color);
+            font-size: 1em;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid var(--border-color);
+            border-radius: 5px;
+            font-family: 'Georgia', 'Garamond', serif;
+            font-size: 1em;
+            color: var(--text-color);
+            background: #FDFAF5;
+            transition: border-color 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            background: white;
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-submit-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            font-family: 'Georgia', 'Garamond', serif;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .form-submit-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .form-submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .form-message {
+            margin-top: 15px;
+            padding: 12px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            display: none;
+        }
+
+        .form-message.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            display: block;
+        }
+
+        .form-message.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            display: block;
+        }
+
+        /* ====== ANSWERS SECTION ====== */
+        .answers-section {
+            padding: 0 0 60px 0;
+        }
+
+        .answers-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .answers-count {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-top: 8px;
+        }
+
+        .answers-list {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .answer-card {
+            background: white;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px 25px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            animation: fadeInUp 0.4s ease;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(15px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .answer-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .answer-fio {
+            font-weight: bold;
+            color: var(--primary-color);
+            font-size: 1.05em;
+        }
+
+        .answer-fio i {
+            margin-right: 6px;
+            color: var(--secondary-color);
+        }
+
+        .answer-date {
+            font-size: 0.82em;
+            color: #999;
+        }
+
+        .answer-text {
+            color: var(--text-color);
+            line-height: 1.6;
+            border-left: 3px solid var(--secondary-color);
+            padding-left: 15px;
+            font-style: italic;
+        }
+
+        .answers-loading {
+            text-align: center;
+            padding: 40px;
+            color: #999;
+        }
+
+        .answers-loading i {
+            font-size: 2em;
+            display: block;
+            margin-bottom: 10px;
+            animation: spin 1.2s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .answers-empty {
+            text-align: center;
+            padding: 40px;
+            color: #aaa;
+            font-style: italic;
+        }
+
+        .config-warning {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            display: none;
+        }
+
+        .config-warning h4 {
+            color: #856404;
+            margin-bottom: 8px;
+        }
+
+        .config-warning p {
+            color: #856404;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-background"></div>
+        <div class="header-content">
+            <div class="header-text">
+                <h1 class="header-title">Abdulla Qahhor</h1>
+                <p class="header-subtitle">Buyuk O'zbek yozuvchisi</p>
+            </div>
+            <div class="header-image">
+                <img src="images/photo_1_2026-03-27_19-48-18.jpg" alt="Abdulla Qahhor" class="header-img">
+            </div>
+        </div>
+    </header>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html#biografiya" class="nav-link">Biografiya</a></li>
+                <li class="nav-item"><a href="index.html#asarlari" class="nav-link">Asarlari</a></li>
+                <li class="nav-item"><a href="index.html#iqtiboslar" class="nav-link">Iqtiboslar</a></li>
+                <li class="nav-item"><a href="index.html#galereya" class="nav-link">Foto galereya</a></li>
+                <li class="nav-item"><a href="index.html#manbalar" class="nav-link">Manbalar</a></li>
+                <li class="nav-item"><a href="index.html#aloqa" class="nav-link">Aloqa</a></li>
+                <li class="nav-item"><a href="sorovnoma.html" class="nav-link" style="background-color: var(--secondary-color); color: white;">So'rovnoma</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- MAIN -->
+    <main class="main-content">
+        <section class="survey-section">
+            <div class="container">
+                <h2 class="section-title">So'rovnoma</h2>
+                <p class="section-subtitle">Abdulla Qahhor haqidagi bilimingizni ulashing</p>
+
+                <!-- Config warning — shown if SCRIPT_URL not set -->
+                <div class="config-warning" id="configWarning">
+                    <h4><i class="fas fa-exclamation-triangle"></i> Sozlash kerak</h4>
+                    <p>Google Apps Script URL hali ulanmagan. <strong>SOZLASH.md</strong> faylidagi yo'riqnomani bajaring.</p>
+                </div>
+
+                <!-- FORM -->
+                <div class="survey-card">
+                    <div class="survey-question">
+                        <i class="fas fa-feather-alt" style="color: var(--secondary-color); margin-right: 10px;"></i>
+                        Abdulla Qahhor haqida bitta fakt keltiring
+                    </div>
+
+                    <form id="surveyForm">
+                        <div class="form-group">
+                            <label for="fio">
+                                <i class="fas fa-user"></i> F.I.O (Familiya, Ism, Otasining ismi)
+                            </label>
+                            <input
+                                type="text"
+                                id="fio"
+                                name="fio"
+                                placeholder="Masalan: Karimov Alisher Bekovich"
+                                required
+                                maxlength="150"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="javob">
+                                <i class="fas fa-comment-alt"></i> Sizning faktingiz
+                            </label>
+                            <textarea
+                                id="javob"
+                                name="javob"
+                                placeholder="Abdulla Qahhor haqida bilgan bitta qiziqarli faktni yozing..."
+                                required
+                                maxlength="1000"
+                            ></textarea>
+                        </div>
+
+                        <button type="submit" class="form-submit-btn" id="submitBtn">
+                            <i class="fas fa-paper-plane"></i> Yuborish
+                        </button>
+
+                        <div class="form-message" id="formMessage"></div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- ANSWERS -->
+        <section class="answers-section">
+            <div class="container">
+                <div class="answers-header">
+                    <h2 class="section-title">Barcha javoblar</h2>
+                    <span class="answers-count" id="answersCount">Yuklanmoqda...</span>
+                </div>
+
+                <div class="answers-list" id="answersList">
+                    <div class="answers-loading">
+                        <i class="fas fa-spinner"></i>
+                        Javoblar yuklanmoqda...
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer id="aloqa" class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Aloqa</h3>
+                    <p>Biz bilan bog'lanish uchun:</p>
+                    <ul class="contact-list">
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:urazbayevafarangiz@gmail.com">urazbayevafarangiz@gmail.com</a></li>
+                        <li><i class="fas fa-paper-plane"></i> <a href="https://t.me/farangiz1160" target="_blank">@farangiz1160 (Telegram)</a></li>
+                        <li><i class="fas fa-map-marker-alt"></i> To'rtko'l, O'zbekiston</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Sayt Muallifi</h3>
+                    <p><strong>O'razboyeva Farangiz</strong></p>
+                    <p>Tashkent davlat iqtisodiyot universiteti<br>To'rtko'l fakulteti<br>talabasi</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Asosiy Menyu</h3>
+                    <ul class="footer-menu">
+                        <li><a href="index.html"><i class="fas fa-home"></i> Bosh sahifa</a></li>
+                        <li><a href="index.html#biografiya"><i class="fas fa-user"></i> Biografiya</a></li>
+                        <li><a href="index.html#asarlari"><i class="fas fa-book"></i> Asarlari</a></li>
+                        <li><a href="index.html#galereya"><i class="fas fa-image"></i> Galereya</a></li>
+                        <li><a href="sorovnoma.html"><i class="fas fa-poll"></i> So'rovnoma</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; Abdulla Qahhor - Rasmiy Veb-Sayt. Barcha huquqlar himoyalangan.<br>
+                <small>Muallif: O'razboyeva Farangiz | TDIU To'rtko'l fakulteti | 2026</small></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // =====================================================
+        // BU YERGA O'Z APPS SCRIPT URL-INGIZNI QO'YING
+        // Quyidagi bo'sh qatorni to'ldiring. Masalan:
+        // const SCRIPT_URL = 'https://script.google.com/macros/s/ABC123.../exec';
+        // =====================================================
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxCQSi4MAoXWyRC3bRoFkyUhsJGg2h4MhZNWOZrSX6TO_rH0NhohXgPSbpqOxZp5HIP/exec';
+
+        // =====================================================
+
+        function formatDate(dateStr) {
+            const d = new Date(dateStr);
+            if (isNaN(d)) return '';
+            return d.toLocaleDateString('uz-UZ', {
+                year: 'numeric', month: 'long', day: 'numeric',
+                hour: '2-digit', minute: '2-digit'
+            });
+        }
+
+        function renderAnswers(answers) {
+            const list = document.getElementById('answersList');
+            const count = document.getElementById('answersCount');
+
+            if (!answers || answers.length === 0) {
+                count.textContent = '0 ta javob';
+                list.innerHTML = '<div class="answers-empty"><i class="fas fa-inbox" style="font-size:2em; display:block; margin-bottom:10px;"></i>Hali hech kim javob yozmagan. Birinchi bo\'ling!</div>';
+                return;
+            }
+
+            count.textContent = answers.length + ' ta javob';
+            list.innerHTML = answers.map(a => `
+                <div class="answer-card">
+                    <div class="answer-header">
+                        <span class="answer-fio"><i class="fas fa-user-circle"></i>${escapeHtml(a.fio)}</span>
+                        <span class="answer-date"><i class="fas fa-clock"></i> ${formatDate(a.sana)}</span>
+                    </div>
+                    <div class="answer-text">${escapeHtml(a.javob)}</div>
+                </div>
+            `).join('');
+        }
+
+        function escapeHtml(str) {
+            return String(str)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;');
+        }
+
+        async function loadAnswers() {
+            if (!SCRIPT_URL) {
+                document.getElementById('configWarning').style.display = 'block';
+                document.getElementById('answersCount').textContent = 'URL sozlanmagan';
+                document.getElementById('answersList').innerHTML =
+                    '<div class="answers-empty">Apps Script URL sozlanmagan.</div>';
+                return;
+            }
+            try {
+                const res = await fetch(SCRIPT_URL + '?action=get');
+                if (!res.ok) throw new Error('Serverdan xato');
+                const data = await res.json();
+                renderAnswers(data);
+            } catch (e) {
+                document.getElementById('answersCount').textContent = 'Xato';
+                document.getElementById('answersList').innerHTML =
+                    '<div class="answers-empty" style="color:#c0392b;"><i class="fas fa-exclamation-circle" style="font-size:2em; display:block; margin-bottom:10px;"></i>Javoblarni yuklab bo\'lmadi. Iltimos, sahifani yangilang.</div>';
+            }
+        }
+
+        document.getElementById('surveyForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const fio    = document.getElementById('fio').value.trim();
+            const javob  = document.getElementById('javob').value.trim();
+            const btn    = document.getElementById('submitBtn');
+            const msg    = document.getElementById('formMessage');
+
+            msg.className = 'form-message';
+            msg.style.display = 'none';
+
+            if (!SCRIPT_URL) {
+                msg.textContent = 'Apps Script URL sozlanmagan. Iltimos, SOZLASH.md faylini o\'qing.';
+                msg.className = 'form-message error';
+                return;
+            }
+
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Yuborilmoqda...';
+
+            const params = new URLSearchParams();
+            params.append('action', 'post');
+            params.append('fio', fio);
+            params.append('javob', javob);
+
+            try {
+                await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    body: params
+                });
+
+                msg.textContent = 'Rahmat! Javobingiz muvaffaqiyatli yuborildi.';
+                msg.className = 'form-message success';
+                this.reset();
+
+                // 2 soniyadan so'ng javoblar ro'yxatini yangilash
+                setTimeout(loadAnswers, 2000);
+            } catch (err) {
+                msg.textContent = 'Xato yuz berdi. Internetni tekshiring va qayta urinib ko\'ring.';
+                msg.className = 'form-message error';
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = '<i class="fas fa-paper-plane"></i> Yuborish';
+            }
+        });
+
+        // Sahifa ochilganda javoblarni yukla
+        loadAnswers();
+    </script>
+</body>
+</html>
