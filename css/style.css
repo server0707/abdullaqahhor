@@ -893,8 +893,8 @@ main {
     background: white;
     padding: 40px;
     border-radius: 8px;
-    max-width: 600px;
-    width: 90%;
+    max-width: 900px;
+    width: 92%;
     position: relative;
     animation: slideUp 0.3s ease;
 }
@@ -928,8 +928,10 @@ main {
     line-height: 1.8;
     color: #333;
     margin-bottom: 25px;
-    max-height: 400px;
+    max-height: 65vh;
     overflow-y: auto;
+    text-align: justify;
+    white-space: pre-wrap;
 }
 
 /* ==================== RESOURCE MODAL ==================== */
