@@ -343,6 +343,12 @@
                         Javoblar yuklanmoqda...
                     </div>
                 </div>
+
+                <div style="text-align: center; margin-top: 20px;">
+                    <button id="loadMoreBtn" class="form-submit-btn" style="display:none; width:auto; padding: 12px 40px;">
+                        <i class="fas fa-chevron-down"></i> Ko'proq ko'rish
+                    </button>
+                </div>
             </div>
         </section>
     </main>
@@ -402,26 +408,52 @@
             });
         }
 
-        function renderAnswers(answers) {
-            const list = document.getElementById('answersList');
-            const count = document.getElementById('answersCount');
+        const PAGE_SIZE = 10;
+        let allAnswers = [];
+        let shownCount = 0;
 
-            if (!answers || answers.length === 0) {
-                count.textContent = '0 ta javob';
-                list.innerHTML = '<div class="answers-empty"><i class="fas fa-inbox" style="font-size:2em; display:block; margin-bottom:10px;"></i>Hali hech kim javob yozmagan. Birinchi bo\'ling!</div>';
-                return;
-            }
-
-            count.textContent = answers.length + ' ta javob';
-            list.innerHTML = answers.map(a => `
+        function answerCardHtml(a) {
+            return `
                 <div class="answer-card">
                     <div class="answer-header">
                         <span class="answer-fio"><i class="fas fa-user-circle"></i>${escapeHtml(a.fio)}</span>
                         <span class="answer-date"><i class="fas fa-clock"></i> ${formatDate(a.sana)}</span>
                     </div>
                     <div class="answer-text">${escapeHtml(a.javob)}</div>
-                </div>
-            `).join('');
+                </div>`;
+        }
+
+        function renderAnswers(answers) {
+            const list  = document.getElementById('answersList');
+            const count = document.getElementById('answersCount');
+            const btn   = document.getElementById('loadMoreBtn');
+
+            allAnswers = answers || [];
+            shownCount = 0;
+
+            if (allAnswers.length === 0) {
+                count.textContent = '0 ta javob';
+                list.innerHTML = '<div class="answers-empty"><i class="fas fa-inbox" style="font-size:2em; display:block; margin-bottom:10px;"></i>Hali hech kim javob yozmagan. Birinchi bo\'ling!</div>';
+                btn.style.display = 'none';
+                return;
+            }
+
+            count.textContent = allAnswers.length + ' ta javob';
+            list.innerHTML = '';
+            showMore();
+        }
+
+        function showMore() {
+            const list = document.getElementById('answersList');
+            const btn  = document.getElementById('loadMoreBtn');
+            const next = allAnswers.slice(shownCount, shownCount + PAGE_SIZE);
+
+            next.forEach(a => {
+                list.insertAdjacentHTML('beforeend', answerCardHtml(a));
+            });
+            shownCount += next.length;
+
+            btn.style.display = shownCount < allAnswers.length ? 'inline-block' : 'none';
         }
 
         function escapeHtml(str) {
@@ -499,8 +531,30 @@
             }
         });
 
-        // Sahifa ochilganda javoblarni yukla
+        async function pollAnswers() {
+            if (!SCRIPT_URL) return;
+            try {
+                const res = await fetch(SCRIPT_URL + '?action=get');
+                if (!res.ok) return;
+                const data = await res.json();
+                const newCount = data.length - allAnswers.length;
+                if (newCount > 0) {
+                    const list = document.getElementById('answersList');
+                    for (let i = newCount - 1; i >= 0; i--) {
+                        list.insertAdjacentHTML('afterbegin', answerCardHtml(data[i]));
+                    }
+                    allAnswers = data;
+                    shownCount += newCount;
+                    document.getElementById('answersCount').textContent = allAnswers.length + ' ta javob';
+                }
+            } catch (e) { /* polling xatosi — foydalanuvchiga ko'rsatmaymiz */ }
+        }
+
+        document.getElementById('loadMoreBtn').addEventListener('click', showMore);
+
+        // Sahifa ochilganda javoblarni yukla, keyin har 30 sekundda yangilash
         loadAnswers();
+        setInterval(pollAnswers, 30000);
     </script>
 </body>
 </html>
