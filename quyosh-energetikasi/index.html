@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Quyosh Energetikasi — Elektron Darslik | Android Ilovasi</title>
+    <meta name="description" content="Quyosh energetikasi fanidan elektron darslik. Talabalar va mutaxassislar uchun Android ilovasi. Quyosh panellari, fotovoltaik tizimlar, energiya hisoblash bo'yicha to'liq ma'lumot.">
+    <meta name="keywords" content="quyosh energetikasi, elektron darslik, quyosh energiyasi, android ilova, yuklab olish, fotovoltaik, quyosh paneli, energetika, darslik apk">
+    <meta name="author" content="Quyosh Energetikasi">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.abduquahhor.uz/quyosh-energetikasi/">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Quyosh Energetikasi — Elektron Darslik">
+    <meta property="og:description" content="Talabalar va mutaxassislar uchun quyosh energetikasi fanidan Android elektron darslik ilovasi.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.abduquahhor.uz/quyosh-energetikasi/">
+    <meta property="og:locale" content="uz_UZ">
+
+    <!-- Schema.org: SoftwareApplication -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Quyosh Energetikasi — Elektron Darslik",
+        "description": "Quyosh energetikasi fanidan elektron darslik. Talabalar va mutaxassislar uchun mo'ljallangan Android ilovasi.",
+        "applicationCategory": "EducationApplication",
+        "operatingSystem": "Android",
+        "inLanguage": "uz",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "UZS"
+        },
+        "downloadUrl": "https://www.abduquahhor.uz/quyosh_energetikasi.apk",
+        "url": "https://www.abduquahhor.uz/quyosh-energetikasi/"
+    }
+    </script>
+
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f0f4f8;
+            color: #1a202c;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background: linear-gradient(135deg, #f6ad55 0%, #ed8936 40%, #c05621 100%);
+            color: white;
+            padding: 48px 24px 56px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -60px; right: -60px;
+            width: 220px; height: 220px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 50%;
+        }
+
+        .sun-icon {
+            font-size: 64px;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        header h1 {
+            font-size: clamp(1.6rem, 4vw, 2.4rem);
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        header p {
+            font-size: 1rem;
+            opacity: 0.9;
+            max-width: 480px;
+            margin: 0 auto;
+        }
+
+        main {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            flex: 1;
+        }
+
+        .download-card {
+            background: white;
+            border-radius: 16px;
+            padding: 36px 32px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #fff7ed;
+            color: #c05621;
+            border: 1px solid #fed7aa;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 4px 14px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .download-card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #1a202c;
+        }
+
+        .download-card > p {
+            color: #718096;
+            margin-bottom: 28px;
+            font-size: 0.95rem;
+        }
+
+        .btn-download {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #ed8936, #c05621);
+            color: white;
+            text-decoration: none;
+            padding: 15px 36px;
+            border-radius: 12px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            transition: transform 0.15s, box-shadow 0.15s;
+            box-shadow: 0 4px 14px rgba(192,86,33,0.35);
+        }
+
+        .btn-download:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(192,86,33,0.45);
+        }
+
+        .btn-download svg {
+            width: 20px; height: 20px;
+            flex-shrink: 0;
+        }
+
+        .meta-info {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.85rem;
+            color: #a0aec0;
+        }
+
+        .features {
+            background: white;
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            margin-bottom: 32px;
+        }
+
+        .features h2 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #2d3748;
+        }
+
+        .features ul {
+            list-style: none;
+            display: grid;
+            gap: 12px;
+        }
+
+        .features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 0.95rem;
+            color: #4a5568;
+            line-height: 1.5;
+        }
+
+        .features li::before {
+            content: '✦';
+            color: #ed8936;
+            font-size: 0.75rem;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+
+        .target {
+            background: white;
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            margin-bottom: 32px;
+        }
+
+        .target h2 {
+            font-size: 1.2rem;
+            margin-bottom: 16px;
+            color: #2d3748;
+        }
+
+        .audience-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .audience-item {
+            background: #fff7ed;
+            border-left: 3px solid #ed8936;
+            border-radius: 8px;
+            padding: 12px 16px;
+            font-size: 0.9rem;
+            color: #744210;
+            font-weight: 500;
+        }
+
+        .requirements {
+            background: #f7fafc;
+            border-radius: 12px;
+            padding: 20px 24px;
+            font-size: 0.875rem;
+            color: #718096;
+            border: 1px solid #e2e8f0;
+            margin-bottom: 32px;
+        }
+
+        .requirements strong {
+            color: #4a5568;
+        }
+
+        footer {
+            text-align: center;
+            padding: 24px;
+            font-size: 0.8rem;
+            color: #a0aec0;
+            border-top: 1px solid #e2e8f0;
+            background: white;
+        }
+
+        footer a {
+            color: #ed8936;
+            text-decoration: none;
+        }
+
+        @media (max-width: 500px) {
+            .audience-grid { grid-template-columns: 1fr; }
+            .download-card { padding: 28px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <span class="sun-icon">☀️</span>
+    <h1>Quyosh Energetikasi</h1>
+    <p>Elektron darslik — talabalar va mutaxassislar uchun</p>
+</header>
+
+<main>
+
+    <div class="download-card">
+        <span class="badge">Android Ilova</span>
+        <h2>Ilovani Yuklab Oling</h2>
+        <p>Quyosh energetikasi fanidan to'liq elektron darslik. Bepul.</p>
+
+        <a href="../quyosh_energetikasi.apk" class="btn-download" download>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 15V3M12 15l-4-4M12 15l4-4"/>
+                <path d="M2 17v2a2 2 0 002 2h16a2 2 0 002-2v-2"/>
+            </svg>
+            APK Yuklab Olish
+        </a>
+
+        <div class="meta-info">
+            <span class="meta-item">📱 Android 5.0+</span>
+            <span class="meta-item">🆓 Bepul</span>
+            <span class="meta-item">🇺🇿 O'zbek tilida</span>
+        </div>
+    </div>
+
+    <div class="features">
+        <h2>Ilova haqida</h2>
+        <ul>
+            <li>Quyosh energetikasining nazariy asoslari va amaliy ma'lumotlar</li>
+            <li>Fotovoltaik tizimlar va quyosh panellari bo'yicha batafsil tushuntirishlar</li>
+            <li>Energiya ishlab chiqarish hisoblash usullari</li>
+            <li>Interaktiv o'quv materiallari va rasmlar</li>
+            <li>Internetga ulanmasdan ishlaydi (offline rejim)</li>
+        </ul>
+    </div>
+
+    <div class="target">
+        <h2>Kim uchun?</h2>
+        <div class="audience-grid">
+            <div class="audience-item">🎓 Energetika talabalari</div>
+            <div class="audience-item">👷 Muhandislar</div>
+            <div class="audience-item">🔬 Tadqiqotchilar</div>
+            <div class="audience-item">📚 O'qituvchilar</div>
+        </div>
+    </div>
+
+    <div class="requirements">
+        <strong>Qurilma talablari:</strong> Android 5.0 (Lollipop) va undan yuqori versiya.
+        Noma'lum manbalardan o'rnatishga ruxsat bering: <em>Sozlamalar → Xavfsizlik → Noma'lum manbalar</em>.
+    </div>
+
+</main>
+
+<footer>
+    <p><a href="https://www.abduquahhor.uz/">abduquahhor.uz</a> &nbsp;|&nbsp; &copy; 2026</p>
+</footer>
+
+</body>
+</html>
